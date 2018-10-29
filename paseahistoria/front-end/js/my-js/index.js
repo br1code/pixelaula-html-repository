@@ -9,7 +9,7 @@ function startChapter(info) {
 	{
 		if (this.readyState == 4 && this.status == 200)
 		{
-			window.location.href = "/HTML/history-main.html";
+			window.location.href = "paseahistoria/HTML/history-main.html";
 		}
 	};
     xmlhttp.open("POST","history/chapters-class/prepareChapter.php");
