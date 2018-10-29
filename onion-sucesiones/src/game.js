@@ -108,32 +108,20 @@
             key: 'left',
             frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
             frameRate:10,
-            repeat: -1,
-            setScale: {
-                x:1.9,
-                y:1.9
-            },
+            repeat: -1
         });
 
         this.anims.create ({
             key: 'turn',
             frames: [ { key: 'dude', frame: 4 } ],
-            frameRate: 20,
-            setScale: {
-                x:1.9,
-                y:1.9
-            },
+            frameRate: 20
         });
 
         this.anims.create({
             key: 'right',
             frames: this.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
             frameRate: 10,
-            repeat: -1,
-            setScale: {
-                x:1.9,
-                y:1.9
-            },
+            repeat: -1
         });
         //VARIABLE PARA EL TECLADO
         cursors = this.input.keyboard.createCursorKeys();
@@ -284,33 +272,31 @@
     }
 
     function update ()
-{
+    {
         //movimientos del personaje
+        if (cursors.left.isDown)
+        {
+            player.setVelocityX(-160);
 
-    if (cursors.left.isDown)
-    {
-        player.setVelocityX(-160);
+            player.anims.play('left', true);
+        }
+        else if (cursors.right.isDown)
+        {
+            player.setVelocityX(160);
 
-        player.anims.play('left', true);
+            player.anims.play('right', true);
+        }
+        else
+        {
+            player.setVelocityX(0);
+
+            player.anims.play('turn', true);
+        }
+        if (cursors.space.isDown && player.body.touching.down)
+        {
+            player.setVelocityY(-530);
+        }
     }
-    else if (cursors.right.isDown)
-    {
-        player.setVelocityX(160);
-
-        player.anims.play('right', true);
-    }
-    else
-    {
-        player.setVelocityX(0);
-
-        player.anims.play('turn');
-    }
-
-    if ((cursors.up.isDown || cursors.space.isDown) && player.body.touching.down)
-    {
-        player.setVelocityY(-530);
-    }
-}
     function crearEstrellas(){
         
            stars1.create(25, Phaser.Math.FloatBetween(120,400), 'uno').setBounceY(Phaser.Math.FloatBetween(0.4, 0.8)).setScale(1.9).getBounds();
