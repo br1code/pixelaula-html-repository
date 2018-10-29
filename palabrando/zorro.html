@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Linea para agregar el CSS de Bootstrap.-->
+    <!--<link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- CSS para darle forma a las cosas.-->
+    <link rel="stylesheet" href="style.css">
+
+      
+    <title>Palabrando - PixelAula</title>
+  </head>
+
+  <body style="background-image: url('Images/Fondo8.png')">
+
+    <div class="center-div text-center image-responsive">
+      <div class="top-div text-center image-center image-responsive background-repeat: no-repeat;"></div>
+
+      <br>
+
+      <div class="image-div text-center image-center" style="background: url('Images/Fotos/Zorro.jpg')"></div>
+      
+      <br>
+      <!-- Div con los eventos de dropzone, y todas las caracteristicas.-->
+      <div id="drop_zone" class="drop_zone" ondragenter="drag_enter(event)" ondrop="drag_drop(event)" ondragover="return false" ondragleave="drag_leave(event)"></div>
+      
+      <br>
+      
+      <div id="2" class="objects" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)" style="background-image:url('Images/O.png'); background-repeat: no-repeat;"></div>
+      <div id="1" class="objects" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)" style="background-image:url('Images/Z.png'); background-repeat: no-repeat;"></div>
+      <div id="3" class="objects" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)" style="background-image:url('Images/R.png'); background-repeat: no-repeat;"></div>
+      <div id="5" class="objects" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)" style="background-image:url('Images/O.png'); background-repeat: no-repeat;"></div>
+      <div id="4" class="objects" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)" style="background-image:url('Images/R.png'); background-repeat: no-repeat;"></div>
+      <div id="s" class="objects" draggable="true" ondragstart="drag_start(event)" ondragend="drag_end(event)" style="background-image:url('Images/S.png'); background-repeat: no-repeat;"></div>
+      
+      <br>
+      <br>
+      <button type="button" class="btn btn-info btn-center" onclick="readDropZone6()">Aceptar</button>
+      <button type="button" class="btn btn-light btn-center" onclick="location.reload(true);">Reiniciar</button>      
+    </div>
+        
+    <!-- Lineas para agregar otras librerias de Bootstrap
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.0/bootstrap.min.js"></script>-->
+    <!-- Linea para agregar libreria de Alertas-->
+    <!--script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/sweetalert.min.js"></script>
+    <!-- Linea para agregar mi JavaScript-->
+    <script src="js/main.js"></script>
+</body>
+</html>

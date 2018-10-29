@@ -1,0 +1,128 @@
+.center-div {
+  position: relative;
+  display: block;
+  margin: auto;
+  background-image: url('Images/FondoArmado.png');
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 560px;
+  height: 750px;
+  border-color: rgb(206, 70, 70);
+  border-style: dashed;
+  border-radius: 3px;
+  padding: 2px;
+}
+
+.top-div {
+  position: center;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 550px;
+  height: 170px;
+  background-image: url('Images/4Header.png');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border-radius: 3px;
+}
+
+.image-div {
+  margin: auto;
+  display: block;
+  width: 300px;
+  height: 300px;
+  padding:3px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border: rgb(206, 70, 70);
+  border-radius: 10px;
+  border-style: dashed;
+}
+
+.image-div2 {
+  margin: auto;
+  display: block;
+  width: 400px;
+  height: 400px;
+  padding:3px;
+  background: url('Images/5Fin.png');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border: rgb(206, 70, 70);
+  border-radius: 10px;
+  border-style: dashed;
+}
+
+.image-div3 {
+  margin: auto;
+  display: block;
+  width: 400px;
+  height: 400px;
+  padding:3px;
+  background: url('Images/6Inicio.png');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border: rgb(206, 70, 70);
+  border-radius: 10px;
+  border-style: dashed;
+}
+
+.image-div4 {
+  margin: auto;
+  display: block;
+  width: 400px;
+  height: 400px;
+  padding:3px;
+  background: url('Images/7Info.png');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border: rgb(206, 70, 70);
+  border-radius: 10px;
+  border-style: dashed;
+}
+
+.objects {
+  display:inline-block;
+  height: 55px;
+  width: 55px;
+  left: 3.5px;
+  margin: 0px;
+  padding: 5px;
+  text-align: auto;
+  cursor: move;
+}
+
+.drop_zone {
+  display:inline-block;
+  margin: auto;
+  background: rgb(206, 70, 70); 
+  border: rgb(41, 76, 172);
+  width: 500px; 
+  height: 75px;
+  padding: 5px;
+  border-radius: 5px;
+  border-style: dashed;
+}
+
+.swal-overlay {
+  background-color: rgba(206, 70, 70, 0.25);
+  align-content: center;
+}
+
+.swal-button {
+  padding: 7px 19px;
+  border-radius: 2px;
+  
+  background-color: #4962B3;
+  font-size: 12px;
+  border: 1px solid #53649c;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+}
+
+.swal-modal {
+  background-color: rgb(255, 255, 255);
+  border: 3px solid white;
+}
