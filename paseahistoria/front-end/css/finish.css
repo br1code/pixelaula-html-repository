@@ -4,7 +4,7 @@ html, body {
 }
 
 .index-body {
-    background-image: url(/PaseaHistoria/front-end/images/background/escuela.jpg);
+    background-image: url(front-end/images/background/escuela.jpg);
     background-size: cover;
     background-position: center;
 }
