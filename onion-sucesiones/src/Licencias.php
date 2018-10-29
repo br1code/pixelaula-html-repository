@@ -1,0 +1,62 @@
+</head>
+    <?php include 'header.php'; ?>
+<body style="background-color: #2C7EE3;">  
+    <div style="text-align: center;">
+    <div style="margin-top: 55px">
+    <hr style="height: 2px; background-color: white;">
+    <h2 style="color: white;"> ACERCA DE:</h2>
+    <hr style="height: 2px; background-color: white;">
+    <br>
+    <p style="font-size: 20px;">Desarrollado por Alexis Olivera en el marco de las practicas profesionalizantes de la Escuela Superior Nº 49  "Cap. Gral. J.J. Urquiza" - Nivel Superior Carrera: Tecnico superior en desarrollo de software. - Area: Practica profesionalizantes 2º 2ª DS </p></div>
+    <br><br>
+    <hr style="height: 2px; background-color: white;">
+    <div>
+      <h2 style="color: white;">LICENCIAS</h2>
+    </div>
+    <hr style="height: 2px; background-color: white;">
+  <div>
+  <h3 style="color: white;">Phaser</h3>
+<p style="font-size: 20px;">Phaser is distributed under the MIT License. This covers the framework itself. Please see the trademark policy for details about using the Phaser logo or branding.
+
+Copyright © 2018 Richard Davey, Photon Storm Ltd.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and / or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+  </div>
+  <div>
+  <h3 style="color: white;">Bootstrap</h3>
+ <p style="font-size: 20px;">   The MIT License (MIT)
+
+Copyright (c) 2011-2018 Twitter, Inc.
+Copyright (c) 2011-2018 The Bootstrap Authors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE. </p>
+  </div>
+
+  <div>
+  <h3 style="color: white;">Onion</h3>
+ <p style="font-size: 20px;"> Este juego es libre de ser utilizado, distribuido y/o modificado.</p>
+  </div>
+  </div>
+</body>
+</html>
+

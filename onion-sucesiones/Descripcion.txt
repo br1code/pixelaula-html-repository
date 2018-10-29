@@ -1,0 +1,3 @@
+Onion es un juego que ayuda a los niños a trabajar las sucesiones numericas desde el 1 hasta el 10, el objetivo del juego es conseguir juntar las 10 estrellas en orden ascendente para lo cual se presentan algunas dificultades, con el objetivo de sumarle diversion al desafio.
+
+Desarrolado por Alexis Olivera
