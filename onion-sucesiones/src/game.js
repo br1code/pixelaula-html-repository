@@ -63,7 +63,7 @@
         this.load.spritesheet ('dude', 'assets/dude.png', {frameWidth: 32, frameHeight: 48} );
         this.load.audio('principal', 'assets/Song.mp3');
         this.load.audio('Esonido', 'assets/EstrellaSonido.mp3');
-        this.load.audio('Bomba', 'assets/bomb.mp3');
+        this.load.audio('Bomba', 'assets/Bomb.mp3');
         //this.load.spritesheet ('starse', 'assets/starsheet.png', {frameWidth: 24, frameHeight: 22, endFrame: 1})
     }
 
