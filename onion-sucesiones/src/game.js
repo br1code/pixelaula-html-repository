@@ -23,6 +23,7 @@
     var puntaje = 0;
     var puntajeText;
     var stars1;
+    var plataformas = false;
 
     /*var stars2;
     var stars3;*/
@@ -34,9 +35,9 @@
     function preload ()
     {
         this.load.image('sky','assets/sky.png');
+        this.load.image('sky1','assets/sky1.png');
         this.load.image ('ground', 'assets/platform.png');
         this.load.image ('piso', 'assets/grass.png');
-        this.load.image ('star', 'assets/star.png');
         this.load.image ('uno', 'assets/stars1.png');
         this.load.image ('dos', 'assets/stars2.png');
         this.load.image ('tres', 'assets/stars3.png');
@@ -58,14 +59,18 @@
         this.load.image ('circulo8', 'assets/circulo8.png');
         this.load.image ('circulo9', 'assets/circulo9.png');
         this.load.image ('circulo10', 'assets/circulo10.png');
+        this.load.image('derecha','assets/right.png')
         this.load.spritesheet ('dude', 'assets/dude.png', {frameWidth: 32, frameHeight: 48} );
+        this.load.audio('principal', 'assets/Song.mp3');
+        this.load.audio('Esonido', 'assets/EstrellaSonido.mp3');
+        this.load.audio('Bomba', 'assets/bomb.mp3');
         //this.load.spritesheet ('starse', 'assets/starsheet.png', {frameWidth: 24, frameHeight: 22, endFrame: 1})
     }
 
     function create ()
     {
        
-        this.add.image(400, 300, 'sky');
+        fondo=this.add.image(400, 300, 'sky');
         this.circulo1 = this.add.image(300, 15, 'circulo1').setScale(1.9);
         this.circulo2 = this.add.image(340, 17, 'circulo2').setScale(1.9);
         this.circulo3 = this.add.image(380, 17, 'circulo3').setScale(1.9);
@@ -77,26 +82,21 @@
         this.circulo9 = this.add.image(620, 17, 'circulo9').setScale(1.9);
         this.circulo10 = this.add.image(660, 17, 'circulo10').setScale(1.9);
 
+        this.input.addPointer(2);
 
+   
         platforms = this.physics.add.staticGroup();
-       /*var config = {
-        key: 'rotar',
-        frames: this.anims.generateFrameNumbers('starse', { start: 0, end: 1, first: 1 }),
-        frameRate: 20,
-        repeat: -1
-    };
-
-    this.anims.create(config);
-
-    var boom = this.add.sprite(400, 300, 'starse');
-
-    boom.anims.play('rotar'); */
+        let soundSample = this.sound.add('principal', 'loop');
+        soundSample.play();
+        soundSample.setLoop('loop');
+        sonidoEstrella =  this.sound.add('Esonido');
+        sonidoBomba = this.sound.add('Bomba');    
         // creacion de las plataformas
         platforms.create(400, 568, 'piso').setScale(16, 1.3).refreshBody();
-
-        platforms.create(600, 400, 'ground');
-        platforms.create(50, 250, 'ground');
-        platforms.create(750, 220, 'ground');
+        plataforma1 = platforms.create(600, 400, 'ground');
+        plataforma2 = platforms.create(50, 250, 'ground');
+        plataforma3 = platforms.create(750, 220, 'ground');
+       
         //fisica del personaje
         player = this.physics.add.sprite (100, 450, 'dude');
 
@@ -128,25 +128,14 @@
         //COLISION ENTRE EL PERSONAJE Y LAS PLATAFORMAS
         this.physics.add.collider(player, platforms);
         // creacion de las estrellas
-       /* stars = this.physics.add.group({
-            key: 'star',
-            repeat: 2,
-            setXY: {x: 12, y: 0, stepX: 70},
-        });
-
-        stars.children.iterate(function (child){
-            child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
-        });*/
+      
         // TEXTO DE PUNTAJE
         puntajeText = this.add.text(16, 16, 'Puntos: 0', { fontSize: '32px', fill: '#000'});
-        // colision estrellas con plataformas y personaje junta estrellas
-        /*this.physics.add.collider(stars, platforms);
-        this.physics.add.overlap(player, stars, collectStar, null, this);
-*/  //BOMBA
+  //BOMBA
         bombs = this.physics.add.group();
         this.physics.add.collider(bombs,platforms);
         this.physics.add.collider(player, bombs, hitBomb, null, this);
-
+        // colision estrellas con plataformas y personaje junta estrellas, creacion estrellas
          //numero 1
 
         stars1 = this.physics.add.group({
@@ -273,11 +262,57 @@
 
     function update ()
     {
+        if(game.input.activePointer.isDown)
+        {
+            if(game.input.activePointer.x > 600)
+            {
+                player.setVelocityX(160);
+                player.anims.play('right', true);
+            }   
+                else if (game.input.activePointer.x < 200 )
+                {
+                    player.setVelocityX(-160);
+                    player.anims.play('left', true);
+                }
+                if(game.input.activePointer.x < 600  && game.input.activePointer.x > 200 && player.body.touching.down)
+            {
+                player.setVelocityY(-530);
+            }
+        } else if (!game.input.activePointer.isDown)
+            {
+                    if (cursors.left.isDown)
+                {
+                    player.setVelocityX(-160);
+                    player.anims.play('left', true);
+                }
+                else if (cursors.right.isDown)
+                {
+                    player.setVelocityX(160);
+
+                    player.anims.play('right', true);
+                }
+                else
+                {
+                    player.setVelocityX(0);
+
+                    player.anims.play('turn', true);
+                }
+                if ((cursors.space.isDown || cursors.up.isDown) && player.body.touching.down)
+                {
+                    player.setVelocityY(-530);
+                }     
+            } else {
+                    player.setVelocityX(0);
+
+                    player.anims.play('turn', true);
+            }
+    }
+         
         //movimientos del personaje
+      /*          
         if (cursors.left.isDown)
         {
             player.setVelocityX(-160);
-
             player.anims.play('left', true);
         }
         else if (cursors.right.isDown)
@@ -292,20 +327,25 @@
 
             player.anims.play('turn', true);
         }
-        if (cursors.space.isDown && player.body.touching.down)
+        if ((cursors.space.isDown || cursors.up.isDown) && player.body.touching.down)
         {
             player.setVelocityY(-530);
-        }
-    }
+        }*/
+
+    
+    
+   
+
+
     function crearEstrellas(){
         
-           stars1.create(25, Phaser.Math.FloatBetween(120,400), 'uno').setBounceY(Phaser.Math.FloatBetween(0.4, 0.8)).setScale(1.9).getBounds();
+           stars1.create(25, Phaser.Math.FloatBetween(200,500), 'uno').setBounceY(Phaser.Math.FloatBetween(0.4, 0.8)).setScale(1.9).getBounds();
             stars2.create(65, Phaser.Math.FloatBetween(0,120), 'dos').setBounceY(Phaser.Math.FloatBetween(0.4, 0.8)).setScale(1.9);       
-            stars3.create(100, Phaser.Math.FloatBetween(120,400), 'tres').setBounceY(Phaser.Math.FloatBetween(0.4, 0.8)).setScale(1.9);
+            stars3.create(100, Phaser.Math.FloatBetween(200,500), 'tres').setBounceY(Phaser.Math.FloatBetween(0.4, 0.8)).setScale(1.9);
             stars4.create(150, Phaser.Math.FloatBetween(0,120), 'cuatro').setBounceY(Phaser.Math.FloatBetween(0.4, 0.8)).setScale(1.9);
-            stars5.create(250, Phaser.Math.FloatBetween(120,400), 'cinco').setBounceY(Phaser.Math.FloatBetween(0.4, 0.8)).setScale(1.9);
-            stars6.create(350, Phaser.Math.FloatBetween(120,400), 'seis').setBounceY(Phaser.Math.FloatBetween(0.4, 0.8)).setScale(1.9);
-            stars7.create(450, Phaser.Math.FloatBetween(0,120), 'siete').setBounceY(Phaser.Math.FloatBetween(0.4, 0.8)).setScale(1.9);
+            stars5.create(250, Phaser.Math.FloatBetween(200,400), 'cinco').setBounceY(Phaser.Math.FloatBetween(0.4, 0.8)).setScale(1.9);
+            stars6.create(350, Phaser.Math.FloatBetween(240,500), 'seis').setBounceY(Phaser.Math.FloatBetween(0.4, 0.8)).setScale(1.9);
+            stars7.create(450, Phaser.Math.FloatBetween(0,300), 'siete').setBounceY(Phaser.Math.FloatBetween(0.4, 0.8)).setScale(1.9);
             stars8.create(550, Phaser.Math.FloatBetween(120,400), 'ocho').setBounceY(Phaser.Math.FloatBetween(0.4, 0.8)).setScale(1.9);
             stars9.create(650, Phaser.Math.FloatBetween(120,400), 'nueve').setBounceY(Phaser.Math.FloatBetween(0.4, 0.8)).setScale(1.9);
             stars10.create(750, Phaser.Math.FloatBetween(0,120), 'diez').setBounceY(Phaser.Math.FloatBetween(0.4, 0.8)).setScale(1.9);
@@ -314,21 +354,18 @@
     }
     function collectStar1 (player,stars1)
     {
-         if (score ==0){
+         let soundEstrella = this.sound.add('Esonido');
+        if (score ==0)
+        {
             stars1.disableBody(true, true);
             score += 10;
             puntaje +=10
             puntajeText.setText('Puntos: ' + puntaje);
             this.star1 = this.add.sprite(300, 20, 'uno').setScale(1.9);
             this.circulo1.destroy();
+            sonidoEstrella.play();
         }
-
-        /*if(stars1.countActive (true)===0){
-            stars1.children.iterate(function (child){
-                child.enableBody (true, child.x, 0, true, true);
-            });*/
-            
-        } 
+    } 
     
 
     function collectStar2 (player,stars2)
@@ -340,9 +377,9 @@
             puntajeText.setText('Puntos: ' + puntaje);
             this.star2 = this.add.image(340, 20, 'dos').setScale(1.9);
             this.circulo2.destroy();
+            sonidoEstrella.play();
         }
     }
-
     function collectStar3 (player, stars3)
     {
         if (score>10){
@@ -352,9 +389,33 @@
             puntajeText.setText('Puntos: ' + puntaje);
             this.star3 = this.add.image(380, 20, 'tres').setScale(1.9);
             this.circulo3.destroy();
+            sonidoEstrella.play();
         }
     }
+            function plataformita(){
+                if (puntaje>=90 && puntaje<=110) {
+                plataforma1.destroy();
+                plataforma2.destroy();
+                plataforma3.destroy();
+                plataforma5 = platforms.create(350,470, 'ground');
+                plataforma6 = platforms.create(700,375,'ground');      
+                plataforma7 = platforms.create(300,290,'ground');      
+                plataforma8 = platforms.create(220,190,'ground');      
 
+                 } else if (puntaje >= 180) {
+                plataforma1.destroy();
+                plataforma5.destroy();
+                plataforma6.destroy();
+                plataforma7.destroy();
+                plataforma8.destroy();
+                plataforma1 = platforms.create(600,450,'ground');
+                plataforma2 = platforms.create(50, 250, 'ground');
+                plataforma3 = platforms.create(750, 220, 'ground');
+                plataforma4 = platforms.create(70,440, 'ground');
+                plataforma5 = platforms.create(408,340, 'ground');
+
+                 }
+        }
     function collectStar4 (player, stars4)
     {
         if (score>20){
@@ -364,6 +425,7 @@
             puntajeText.setText('Puntos: ' + puntaje);
             this.star4 = this.add.image(420, 20, 'cuatro').setScale(1.9);
             this.circulo4.destroy();
+            sonidoEstrella.play();
         }
     }
 
@@ -383,6 +445,7 @@
             bomb.setCollideWorldBounds(true);
             bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
             bomb.allowGravity = false;
+            sonidoEstrella.play();
         }
     }
 
@@ -395,6 +458,7 @@
             puntajeText.setText('Puntos: ' + puntaje);
             this.star6 = this.add.image(500, 20, 'seis').setScale(1.9);
             this.circulo6.destroy();
+            sonidoEstrella.play();
         }
     }
 
@@ -407,6 +471,7 @@
             puntajeText.setText('Puntos: ' + puntaje);
             this.star7 = this.add.image(540, 20, 'siete').setScale(1.9);
             this.circulo7.destroy();
+            sonidoEstrella.play();
         }
     }
 
@@ -426,6 +491,7 @@
             bomb.setCollideWorldBounds(true);
             bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
             bomb.allowGravity = false;
+            sonidoEstrella.play();
         }
     }
 
@@ -438,6 +504,7 @@
             puntajeText.setText('Puntos: ' + puntaje);
             this.star9 = this.add.image(620, 20, 'nueve').setScale(1.9);
             this.circulo9.destroy();
+            sonidoEstrella.play();
         }
     }
 
@@ -461,6 +528,9 @@
             this.star9.destroy();
             this.star10.destroy();
             crearEstrellas();
+            plataformita();
+            sonidoEstrella.play();
+
         }
     }
     function hitBomb (player, bomb)
@@ -469,12 +539,14 @@
             bomb.disableBody(true,true);
             puntaje -=10;
             puntajeText.setText('Puntos: ' + puntaje);
+            sonidoBomba.play();
         }
         else{
         score-=10;
         puntaje -=10;
         puntajeText.setText('Puntos: ' + puntaje);
         bomb.disableBody(true,true);
+        sonidoBomba.play();
         if(score == 0){ 
             stars1.create(Phaser.Math.FloatBetween(5,400), Phaser.Math.FloatBetween(120,400), 'uno').setBounceY(Phaser.Math.FloatBetween(0.4, 0.8)).setScale(1.9);
             this.star1.destroy();
