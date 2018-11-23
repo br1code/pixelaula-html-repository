@@ -1,0 +1,19 @@
+Evaluaciones Personalizadas:
+cuenta juancruzcriado@outlook.com // password: asd123
+cuenta rogabarcelo@gmail.com // password: 123456
+(las contraseñas todavia no estan encriptadas todavia pero para el lunes las tengo aunq sea un algoritmo basico).
+Breve Descripcion: Seccion del sitio donde el profesor podra crear evaluaciones multiple choice para sus alumnos y los alumnos accederan al sitio para responderlas.
+
+Educacion víal: 
+Base de datos: "proyectopp.sql".
+link para seccion adm: http://localhost/edVial/administrador/
+cuenta de adm
+cuenta juancruzcriado@outlook.com
+pass 123456
+Breve Descripcion: Seccion donde se brindan conocimientos basicos de educacion víal con un test para probar conocimientos individuales (con seccion de administrador incluida
+/ Pagina autoadministrable).
+
+pd: con estas versiones llego a juntar 102 horas pero aun asi no estan terminadas y las voy a mejorar para el lunes. Cualquier duda al wpp.
+    La db de evaluacione personalizadas no tiene registros, excepto por los de los profesores. Si necesitan crear algunos registros de ejemplo para el martes avisenme,
+de todos modos se puede hacer todo desde la pagina. 
+(Aun esta sin terminar, si puedo ponerme mañana agrego algunas otras cosas)

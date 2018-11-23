@@ -1,0 +1,34 @@
+<div class="container">
+		<div class="row" id="pantalla">
+			<div class="col-sm-12 text-center">
+				<h1 id="juegoHeader">Ejercicios</h1>
+				<br>
+				<div class="row text-center">
+					<p id="contador" class="col-sm-4">Tiempo Restante: 30</p>
+					<p id="ecuacion" class="col-sm-4">Ecuacion</p>
+					<p id="puntaje" class="col-sm-4">Puntaje = 0</p>	
+				</div>
+				<br>
+				<div class="row text-center">
+					<input type="text" id="cajaTxt" class="col-sm-6" value="" onkeypress="checkEnter()">
+					<input type="button" id="boton" value="Terminar" onclick="calcular()" class="col-sm-6">
+				</div>
+			</div>
+		</div>
+		<div class="row" id="reintentar">
+			<div class="col-sm-12 text-center">
+				<h1 id="juegoHeader">¿Volver a Intentar?</h1>
+				<br>
+				<div class="row text-center">
+					<div class="col-sm-5">
+					</div>
+					<div class="col-sm-2">
+						<input type="button" onclick="reintentar(), carga()" value="Reiniciar" class="text-center">
+					</div>
+					<div class="col-sm-5">
+					</div>	
+				</div>
+				<br>
+			</div>
+		</div>
+</div>

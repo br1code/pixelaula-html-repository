@@ -1,0 +1,80 @@
+
+Tareas Pendientes:
+
+Agregar preguntas y respuestas a la db. //
+Responsive //
+Acerca de: .. //
+Agregar la opcion de elegir imagen(señal) al registrar pregunta /adm.
+
+
+
+
+Tareas Realizadas: 
+
+Creacion de la estructura de base de datos (normalizada). // 40min
+Insercion de preguntas y sus respectivas respuestas en la db // 3hs
+Maquetado y estructura principal del sitio. // 2hs
+Busqueda de las señales e insercion de 88 de ellas en la db. // 6hs
+Insercion de las licencias y sus subclases en la db. // 1:40 hs
+Salida visual basica para las licencias y señales. (primera fase) // 1:40 hs
+Funcion principal para el test (obtencion de preguntas de la db de modo random; verificacion de respuestas correctas ; contadores de resp correctas e incorrectas). // 8hs
+Cambiar la funcion de preguntas para que la ubicacion de respuestas tambien sea random. // 2hs
+Agregar a la funcion de preguntas el mostrar la respuesta correcta en caso de ser incorrecta la seleccionada por el usuario (realizado con una pantalla intermedia con la verificacion). // 2hs
+Agregar la opcion de seleccionar que cantidad de preguntas se desean contestar antes de empezar el test.// 40min
+Modificar la funcion principal en el test, para que muestre imagenes en caso de que la pregunta lo requiera.//1:30hs
+Agregar a la funcion de preguntas un condicional para q no se repitan las preguntas.//3hs
+Agregar sesiones para administrador (login, logout y controles de inicio de sesion para permisos) // 3hs.
+Estilos para el nav del header de adm manualmente en css // 2hs
+Modificar la db para implementar seccion de sugerencias (agregar tablas normalizadas).// 30min
+Modificar la db para implementar seccion de administrador (agregar tablas normalizadas).// 25min
+Agregar la seccion de sugerencias a la seccion adm / listado de sugerencias + eliminar sugerencia seleccionada // 2:30 hs
+Plantilla de sugerencia para registrarla como pregunta con acceso a los datos (editable) // 2hs
+Registro de sugerencia como pregunta (registra la pregunta, sus respuestas y una vez registrada elimina la sugerencia). Totalmente funcional (aun sin posibilidad de seleccionar img)// 2:30 hs
+Formulario de sugerencias y registro de sugerencia (en la db) mediante la interfaz. //2hs
+Agregar lista de preguntas y plantilla de preguntas a la seccion de administrador. //1:35hs
+Hacer modificable y eliminable las preguntas mostradas por platillas (por id). //2hs.
+Formulario de nueva pregunta + registro de dicha pregunta. //1h.
+Agregar dificultad al test: cambiar estructura db, agregar nivel a las preguntas registradas, realizar cambios en el codigo e interfaz. // 2:30hs.
+Agregar la opcion de elegir imagen(señal) al registrar sugerencia /adm. // 4hs.
+Cambios generales en estilos de la pagina y estructura del proyecto. // 2hs
+Realizar un buscador para la seccion de lista de preguntas (modificar pregunta) // 1:30h.
+Jueves ingresando preguntas en la db = 2hs; //--// 102hs.
+
+Problemas encontrados: 
+
+En la funcion que obtiene las preguntas, habia 2 preguntas que si salian primero en el test se rompia el programa. El error en consola marcaba que la funcion "comprobar" no estaba definida. 
+Manera en que lo solucione: Mire primero el codigo y no encontre error, como el problema solo surgia con esas 2 preguntas especificas me fui a la db y busque que tenian diferente de los otros registros. Primero encontre que ambas tenian ñ asi que cambia esas ñ por n, probe y el error persistia. luego encontre que en ambas preguntas habia comillas y yo al hacer la conversion de php a js en la var de js ponia comillas antes de la conversion para que pase como string. Saque la conclusion de que las comillas de los registros cerraban las de la string y despues de eso se rompia el valor, no pasaba los parametros y por eso salia error en la funcion. Lo solucione cambiando las comillas de la var js (que utilizaba para la conversion) en comillas simples. Tiempo invertido // 30 min
+
+En la funcion que obtiene las preguntas en ocaciones lanzaba "undefined" en algunas consultas. Revise la bd y el codigo hasta que encontre que el problema era que en la funcion que consulta de manera random lo hacia entre 1 y el maximo nº de ids (SELEC MAX), debido a esto los registros borrados los consultaba y salia la consulta "undefined". Intente cambiando el "Selec Max" por "Select Count" pero no funciono porque no siempre concuerda el numero de contador con un id existente. Solucionado haciendo una consulta previa a todos los id, los guardo en un array y luego la variable "indice" se define extrayendo random con el "array_rand" un id de ese arreglo. // 50min
+
+Problema similar al primero mencionado pero con los values de los inputs al ser el formato value="" y traer una consulta de la db, si esa consulta incluia un "" el value frenaba ahi y el codigo se rompia. Tiempo hasta darme cuenta y solucionarlo 40min(incluidos en las horas de una de las tareas).Solucion: cambiar los value="" (en cuestion) por value=''. Luego procedere a cambiar todos los values.
+
+
+// Evaluaciones.
+Seccion profesor y seccion alumno.
+Examenes multiple choice autocorregibles.
+Examenes normales corregibles por profesor.
+
+Realizado:
+
+DB// 1:30hs.
+Empezar a maquetar la pagina// 2hs.
+Funcion genera codigo random consultando la db // 30min.
+Formulario registro examen mas insercion basica de evaluacion en db.//2:30hs
+Lista que muestra examenes por profesor con buscador incluido // 2hs.
+Formulario de solicitud de profesor con su respectivo registro// 2hs
+Formularios para registrar preguntas. // 3hs
+Registros de preguntas y sus respuestas para primer formulario // 2hs.
+Registros de preguntas y sus respuestas para segundo formulario // 2hs.
+Agregando controladores y verificacion de errores. // 2h
+Formulario de registro de codigos de alumnos con gestion random o manual // 2hs.
+Registro de todos los codigos mas salida pdf con posibilidad de impresion de codigos // 4hs.
+Delete de Examenes y sus datos relacionados (preguntas, codigos alumnos, respuestas) // 4hs
+Agregando controlador para que un profesor no pueda acceder a examenes de otro profesor (en todas las gestiones para examens, provisional). // 1h
+Plantilla para ver todos los codigos para dicho examen y exportar a pdf (con controlador de profesor). // 1h
+Busqueda de examen para alumno verificando ambos codigos y utilizandolos como variables de sesion. // 1h
+Agregar comprobacion de fecha para buscar examen (mostrando la fecha para la cual esta programado en caso de no haber coincidencia) //1h.
+Salida visual de todas las preguntas de un examen + sus respuestas (con todas sus debidas consultas y controladores) //1h.
+Hacer que las respuestas se ordenen aleatoriamente // 1h. (Basado en el proyecto anterior comence por crear el objeto,, creando los metodos, etc Luego comence a crear los arrays y la logica, ya llegando al final me di cuenta que al ser diferente la funcion que muestra las respuestas, en este proyecto, solo era suficiente ordenar random la consulta).
+Registro de respuesta de alumno a un examen con salida evaluativa del sistema (dice cuantas correctas tuvo)// 1h
+Controlador para que un alumno no responda 2 veces el mismo examen (si intenta ingresar muestra msj que ya lo realizo con posibilidad de elegir ver cuantas preguntas acerto)// 1h

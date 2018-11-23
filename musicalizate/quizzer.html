@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="utf-8">
+	<title>Musicalizate</title>
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+</head>
+
+<body>
+    <center>
+       <div id="principal">
+			<header>
+				<div id="logo">
+					<h2 class="titulo">Musicalizate</h2>
+					<p class="sub-titulo">Aprendiendo de teoria musical</p>
+                </div>
+
+				<nav class="menu">
+					<ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="quizzer.html">Juego</a></li>
+						<li><a href="contacto.html">Contacto</a></li>
+						<li><a href="acercade.html">Acerca de</a></li>
+					</ul>
+				</nav>
+			</header>
+        </div>
+        <h2 id="preg"></h2>
+        <input type="text" id="dato">
+        <button id="boton">Siguiente Pregunta</button>
+        <p id="resolucion"></p>
+
+        <script>
+            // Array bidimensional donde se guardarán las preguntas junto a sus respuestas correctas correspondientes...
+            var preguntas = [																			// Pregunta Respuesta
+                    ['aparato utilizado para indicar tiempo o pulso', 'metronomo'],         //  [0][0]   [0][1]
+                    ['Conjunto de notas ordenadas de manera asendente o desendiente se la denomina...', 'escalas'],															//  [1][0]   [1][1]
+                    ['un conjunto de tres o más notas diferentes que suenan simultáneamente forman un ', 'acorde'],                //  [2][0]   [2][1]
+                    ['¿cuantos tiempos dura una nota negra?', '1'],									// ...
+                    ['¿cuantos tiempos dura una nota blanca?', '2'],
+                    ['¿Cual es el quinto grado de la escala de DO mayor?', 'sol'],
+                    ['Aparato que sirve para afinar instrumentos musicales.', 'afinador'],
+                    ['instrumento de 6 cuerdas que se toca con los dedos', 'guitarra'],
+                    ['La distancia entre una o mas notas musicales se las denomina', 'intervalos'],                                      // ...
+                    ['¿Cual es el tercer grado de la escla de DO mayor?', 'mi']						// [9][0] y [9][1]
+                ],
+                pregunta, respuesta,
+                formuladas = 0,
+                acertadas = 0;
+            hazPregunta();
+            /*
+                Se programa que al pulsarse el botón "Siguiente Pregunta" se compruebe si se ha acertado la pregunta, en cuyo caso, se incrementa en una unidad 'acertadas'.
+                También se comprueba si ya se han realizado las 5 preguntas, en cuyo caso, se llama a 'muestraResultado()' que mostrará el resultado del juego y terminará el programa, de lo contrario, se formula una nueva pregunta.
+            */
+            document.getElementById('boton').addEventListener('click', function(){
+                var entrada = document.getElementById("dato").value;
+                if(entrada == respuesta){
+                    acertadas++;
+                }
+                if(formuladas < 10){			// Si aun no se han hecho 10 preguntas...
+                    hazPregunta();			// ... seguir preguntando
+                }
+                else{						// de lo contrario...
+                    muestraResultado();		// ... finaliza juego mostrando el resultado
+                }
+            });
+            /*
+                Formula una pregunta al usuario...
+            */
+            function hazPregunta(){
+                var e;			// simple variable auxiliar
+                // se extrae una pregunta/respuesta al azar del array...
+                e = preguntas.splice( numAleat(0, preguntas.length-1), 1 );
+                pregunta = e[0][0];			// se guardan la pregunta y la respuesta 
+                respuesta = e[0][1];
+                document.getElementById('preg').innerHTML = pregunta;        // se muestra la pregunta
+                document.getElementById('dato').value = '';                  // se borra lo escrito anteriormente por el usuario
+                formuladas++;
+            }
+            // Comprueba el número de preguntas acertadas y muestra mensaje en función de este...
+            function muestraResultado(){
+                var resultado;      // para guardar el mensaje con el resultado
+                switch(acertadas){
+                    case 0:
+                        resultado = 'No has acertado una sola pregunta, toca estudiar :-/';
+                        break;
+                    case 1:
+                        resultado = 'Bueno, al menos has acertado una pregunta :-)';
+                        break;
+                    case 2:
+                        resultado = 'Solo 2 preguntas acertadas de 5. Practica mas.';
+                        break;
+                    case 3:
+                        resultado = ' 3/5 acertadas, tienes que leer un poco mas';
+                        break;
+                    case 4:
+                        resultado = 'no esta mal, has acertado 4 preguntas :-)';
+                        break;
+                    case 5:
+                        resultado = 'regular, has acertado la mitad de las preguntas';
+                        break;
+                    case 6:
+                        resultado = 'BIEN haz acertado 6 preguntas';
+                        break;
+                    case 7:
+                        resultado = 'contestaste bien 7 preguntas ¡sigue asi!';
+                        break;
+                    case 8:
+                        resultado = 'MUY BIEN haz acertado 8 preguntas';
+                        break; 
+                    case 9:
+                        resultado = 'respondiste bien 9 preguntas';
+                        break;  
+                    case 10:
+                        resultado = '¡EXCELENTE! respondiste bien todas las preguntas';
+                        break;
+                }
+                document.getElementById('resolucion').innerHTML = resultado;
+            }
+            /*
+                Devuelve un número aleatorio entero entre 'min' y 'max' (ambos inclusive)
+            */
+            function numAleat(min, max){
+                return Math.floor( Math.random() * (max - min + 1) ) + min;
+            }
+        </script>
+    </center>
+</body>
+
+</html>
