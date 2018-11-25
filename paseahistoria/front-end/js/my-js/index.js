@@ -9,10 +9,10 @@ function startChapter(info) {
 	{
 		if (this.readyState == 4 && this.status == 200)
 		{
-			window.location.href = "/PaseaHistoria/HTML/history-main.html";
+			window.location.href = "/paseahistoria/HTML/history-main.html";
 		}
 	};
-    xmlhttp.open("POST","/PaseaHistoria/history/chapters-class/prepareChapter.php");
+    xmlhttp.open("POST","/paseahistoria/history/chapters-class/prepareChapter.php");
     xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 	xmlhttp.send("info=" + info);
 }
@@ -32,7 +32,7 @@ function updateName(name) {
 			document.getElementById("username-input").value = null;
 		}
 	};
-    xmlhttp.open("POST","/PaseaHistoria/server-logic/userInfo.php");
+    xmlhttp.open("POST","/paseahistoria/server-logic/userInfo.php");
     xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 	xmlhttp.send("name=" + name);
 }
@@ -51,7 +51,7 @@ function checkName() {
 			}
 		}
 	};
-    xmlhttp.open("POST","/PaseaHistoria/server-logic/userProvide.php");
+    xmlhttp.open("POST","/paseahistoria/server-logic/userProvide.php");
     xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 	xmlhttp.send();
 }

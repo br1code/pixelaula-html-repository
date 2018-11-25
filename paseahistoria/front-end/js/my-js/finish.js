@@ -16,7 +16,7 @@ function getObject() {
             updateFinishScreen(elements);
 		}
 	};
-    xmlhttp.open("POST","/PaseaHistoria/server-logic/userInfo.php");
+    xmlhttp.open("POST","/paseahistoria/server-logic/userInfo.php");
     xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 	xmlhttp.send();
 }

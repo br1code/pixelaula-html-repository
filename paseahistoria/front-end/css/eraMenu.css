@@ -3,7 +3,7 @@ html, body {
 }
 
 .index-body {
-    background-image: url(/PaseaHistoria/front-end/images/background/escuela.jpg);
+    background-image: url(/paseahistoria/front-end/images/background/escuela.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -171,15 +171,15 @@ html, body {
 }
 
 .man {
-    background-image: url(/PaseaHistoria/front-end/images/menu-characters/Arg1810/man.jpg);
+    background-image: url(/paseahistoria/front-end/images/menu-characters/Arg1810/man.jpg);
 }
 
 .woman {
-    background-image: url(/PaseaHistoria/front-end/images/menu-characters/Arg1810/pueblo.jpg);
+    background-image: url(/paseahistoria/front-end/images/menu-characters/Arg1810/pueblo.jpg);
 }
 
 .third {
-    background-image: url(/PaseaHistoria/front-end/images/menu-characters/Arg1810/realista.jpg);
+    background-image: url(/paseahistoria/front-end/images/menu-characters/Arg1810/realista.jpg);
 }
 
 .character-text-wrapper {

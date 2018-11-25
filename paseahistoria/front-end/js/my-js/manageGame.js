@@ -28,7 +28,7 @@ function doAjax(type, infoToSend) {
 			prepareScreen(elements);
 		}
 	};
-	xmlhttp.open("POST", "/PaseaHistoria/history/chapters-class/nextScreen.php");
+	xmlhttp.open("POST", "/paseahistoria/history/chapters-class/nextScreen.php");
 	xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 	xmlhttp.send("type=" + type + "&info=" + infoToSend);
 }
