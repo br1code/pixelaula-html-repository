@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sopa De Letras</title>
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body style="background-color:black;">
+
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+.grid-container {
+  display: grid;
+  grid-template: 150px / auto auto auto;
+  grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+.grid-container>div {
+  background-color: rgba(255, 0.8);
+  text-align: center;
+  padding:20px 0;
+  font-size: 30px;
+}
+</style>
+</head>
+<body>
+
+<div class="grid-container">
+  <div class="item1"><center><img src="imagenes/otros/sopaquimica.png" width="1000" height="100" alt="primeraImagen"></center></div>
+</div>
+<center><div id='puzzle'></div></center>
+
+<table>
+  <tr>
+     <th><img src="" width="90" height="100"id="img1" alt="primeraImagen"></th>
+     <th><img src="" width="90" height="100"id="img2" alt="primeraImagen"></th>
+	 <th><img src="" width="90" height="100"id="img3" alt="primeraImagen"></th>
+     <th><img src="" width="90" height="100"id="img4" alt="primeraImagen"></th>
+	 <th><img src="" width="90" height="100"id="img5" alt="primeraImagen"></th>
+     <th><img src="" width="90" height="100"id="img6" alt="primeraImagen"></th>
+  </tr>
+  <tr>
+    <td><img src="" width="90" height="100"id="img7" alt="primeraImagen"></td>
+	<td><img src="" width="90" height="100"id="img8" alt="primeraImagen"></td>
+	<td><img src="" width="90" height="100"id="img9" alt="primeraImagen"></td>
+    <td><img src="" width="90" height="100"id="img10" alt="primeraImagen"></td>
+    <td><img src="" width="90" height="100"id="img11" alt="primeraImagen"></td>
+	<td><img src="" width="90" height="100"id="img12" alt="primeraImagen"></td>
+
+  </tr>
+  <tr>
+    <td><img src="" width="90" height="100"id="img13" alt="primeraImagen"></td>
+	<td><img src="" width="90" height="100"id="img14" alt="primeraImagen"></td>
+	<td><img src="" width="90" height="100"id="img15" alt="primeraImagen"></td>
+    <td><img src="" width="90" height="100"id="img16" alt="primeraImagen"></td>
+    <td><img src="" width="90" height="100"id="img17" alt="primeraImagen"></td>
+	<td><img src="" width="90" height="100"id="img18" alt="primeraImagen"></td>
+  </tr>
+</table>
+
+<input type="button" onclick="location.href='sopadificil.html'" value="reiniciar" name="boton" />
+<input type="button" onclick="location.href='index.html'" value="Volver al menu" name="boton" />
+</body>
+<script language="javascript" type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> 
+<script type="text/javascript" src="src/wordfind.js"></script> 
+<script type="text/javascript" src="scripts/wordfindgame.js"></script> 
+<script>
+var elementos =["","hidrogeno","helio","litio","berilio","boro","carbono","nitrogeno","oxigeno","fluor","neon","sodio","magnesio","aluminio","silicio","fosforo","azufre","cloro","argon","potasio","calcio","escandio","titanio","vanadio","cromo","manganeso","hierro","cobalto","niquel","cobre","zinc","galio","germanio","arsenico","selenio","bromo","kripton","rubidio","estroncio","itrio","circonio","niobio","molibdeno","tecnecio","rutenio","rodio","paladio","plata","cadmio","indio","estaño","antimonio","telurio","yodo","xenon","cesio","bario","lantano","cerio","praseodimio","neodimio","prometio","samario","europio","gadolinio","terbio","disprosio","holmio","erbio","tulio","iterbio","lutecio","hafnio","tantalo","wolframio","renio","osmio","iridio","platino","oro","mercurio","talio","plomo","bismuto","polonio","astato","radon","francio","radio","actinio","torio","protactinio","uranio","neptunio","plutonio","americio","curio","berkelio","californio","einstenio","fermio","mendelevio","nobelio","lawrencio","rutherfordio","dubnio","seaborgio","bohrio","hasio","meitnerio","darmstatio","roentgenio","copernicio","nihonio","flerovio","moscovio","livermorio","teneso","oganeson"];
+var cc=0;
+var cantidadNumeros = 118 ;
+var myArray = []
+var x=0;
+while(myArray.length < cantidadNumeros ){
+  var numeroAleatorio = Math.ceil(Math.random()*cantidadNumeros);
+  var existe = false;
+  for(var i=0;i<myArray.length;i++){
+	if(myArray [i] == numeroAleatorio){
+        existe = true;
+        break;
+    }
+  }
+    document.getElementById("img1").src="imagenes/"+elementos[(myArray[1])]+".png";
+	document.getElementById("img2").src="imagenes/"+elementos[(myArray[2])]+".png";
+	document.getElementById("img3").src="imagenes/"+elementos[(myArray[3])]+".png";
+	document.getElementById("img4").src="imagenes/"+elementos[(myArray[4])]+".png";
+	document.getElementById("img5").src="imagenes/"+elementos[(myArray[5])]+".png";
+	document.getElementById("img6").src="imagenes/"+elementos[(myArray[6])]+".png";
+	document.getElementById("img7").src="imagenes/"+elementos[(myArray[7])]+".png";
+	document.getElementById("img8").src="imagenes/"+elementos[(myArray[8])]+".png";
+	document.getElementById("img9").src="imagenes/"+elementos[(myArray[9])]+".png";
+	document.getElementById("img10").src="imagenes/"+elementos[(myArray[10])]+".png";
+	document.getElementById("img11").src="imagenes/"+elementos[(myArray[11])]+".png";
+	document.getElementById("img12").src="imagenes/"+elementos[(myArray[12])]+".png";
+	document.getElementById("img13").src="imagenes/"+elementos[(myArray[13])]+".png";
+	document.getElementById("img14").src="imagenes/"+elementos[(myArray[14])]+".png";
+	document.getElementById("img15").src="imagenes/"+elementos[(myArray[15])]+".png";
+	document.getElementById("img16").src="imagenes/"+elementos[(myArray[16])]+".png";
+	document.getElementById("img17").src="imagenes/"+elementos[(myArray[17])]+".png";
+	document.getElementById("img18").src="imagenes/"+elementos[(myArray[18])]+".png";
+  if(!existe){
+    myArray[myArray.length] = numeroAleatorio;
+  }
+}
+ var words = [elementos[(myArray[1])],elementos[(myArray[2])],elementos[(myArray[3])],elementos[(myArray[4])],elementos[(myArray[5])],elementos[(myArray[6])],elementos[(myArray[7])],elementos[(myArray[8])],elementos[(myArray[9])],elementos[(myArray[10])],elementos[(myArray[11])],elementos[(myArray[12])],elementos[(myArray[13])],elementos[(myArray[14])],elementos[(myArray[15])],elementos[(myArray[16])],elementos[(myArray[17])],elementos[(myArray[18])]];
+  var gamePuzzle = wordfindgame.create(words, '#puzzle', '#words');
+
+  $('#solve').click( function() {
+    wordfindgame.solve(gamePuzzle, words);
+  });
+  var puzzle = wordfind.newPuzzle(
+    words, 
+    {height: 18, width:18, fillBlanks: false}
+  );
+  wordfind.print(puzzle);
+
+</script>
+</body>
+</html>
